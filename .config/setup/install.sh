@@ -2,6 +2,11 @@ if ! command -v -- chsh > /dev/null 2>&1; then
 	sudo dnf install -y util-linux-user
 fi
 
+if ! command -v -- flatpak > /dev/null 2>&1; then
+	sudo dnf install -y flatpak
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+fi
+
 if ! command -v -- nnn > /dev/null 2>&1; then
 	sudo dnf install -y nnn
 fi
