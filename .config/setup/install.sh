@@ -51,10 +51,8 @@ if ! command -v -- kubectl > /dev/null 2>&1; then
 	rm kubectl
 fi
 
-if ! command -v -- minikube > /dev/null 2>&1; then
-	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-	sudo install minikube-linux-amd64 /usr/local/bin/minikube
-	rm minikube-linux-amd64
-
+if ! command -v -- kind > /dev/null 2>&1; then
+	if command -v -- go > /dev/null 2>&1; then
+		go install sigs.k8s.io/kind@v0.18.0
+	fi
 fi
-
