@@ -35,3 +35,11 @@ if ! command -v -- rvm > /dev/null 2>&1; then
 	curl -sSL https://get.rvm.io | sudo bash -s stable
 	sudo usermod -a -G rvm $(whoami)
 fi
+
+if ! command -v -- minikube > /dev/null 2>&1; then
+	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	sudo install minikube-linux-amd64 /usr/local/bin/minikube
+	rm minikube-linux-amd64
+
+fi
+
