@@ -25,6 +25,10 @@ if ! command -v -- fzf > /dev/null 2>&1; then
 	sudo dnf install -y fzf
 fi
 
+if ! command -v -- tig > /dev/null 2>&1; then
+	sudo dnf install -y tig
+fi
+
 if ! command -v -- rg > /dev/null 2>&1; then
 	sudo dnf install -y ripgrep
 fi
@@ -46,3 +50,20 @@ if ! command -v -- code > /dev/null 2>&1; then
 	sudo dnf update -y
 	sudo dnf install -y code
 fi
+
+# Install and configure asdf
+if ! command -v -- asdf > /dev/null 2>&1; then
+	# Source: https://asdf-vm.com/guide/getting-started.html
+        git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+        # NOTA: I'm using the asdf plugin for OhMyZSH to setup asdf
+fi
+
+#
+#   ONE TIME INSTALLS
+#
+#   Tu install Ruby through asdf, we need first to install some dev libraries.
+#
+#   sudo dnf group install "Development Tools"
+#   sudo dnf install -y openssl-devel libyaml-devel readline-devel zlib-devel libffi-devel
+#   asdf install ruby 3.2.2
+#
